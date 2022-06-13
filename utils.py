@@ -59,10 +59,10 @@ def write_vocabulary_file(vocab_list, field_name, default_value, vocab_dir='./su
     return output_file_path
 
 
-def build_vocab_files(df, categorical_column_list, default_value='00'):
+def build_vocab_files(df, categorical_column_list, vocab_dir, default_value='00'):
     vocab_files_list = []
     for c in categorical_column_list:
-        v_file = write_vocabulary_file(df[c].unique(), c, default_value)
+        v_file = write_vocabulary_file(df[c].unique(), c, default_value, vocab_dir = vocab_dir)
         vocab_files_list.append(v_file)
     return vocab_files_list
 
